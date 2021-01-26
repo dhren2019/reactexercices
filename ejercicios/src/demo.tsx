@@ -1,17 +1,29 @@
-import React from 'react';
-
-export const MyChildComponent = () => {
-  return <h4>Hello from child component</h4>
-}
+import React from "react";
+import { useDebounce } from 'use-debounce';
 
 export const MyComponent = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [filter, setFilter] = React.useState("");
+  const [debounceFilter] = useDebounce(filter, 500);
+  const [userCollection, setUserCollection] = React.useState([]);
 
-  
-  return <>{visible && <MyChildComponent />}
-  <button onClick={() => setVisible(!visible)}>Click</button>
-  </>
+    React.useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/users?username_like=${filter}`)
+            .then(response => response.json())
+            .then(json => setUserCollection(json));
+      }, [debounceFilter]);
+
+  return (
+    <div>
+      <input value={filter} onChange={(e) => setFilter(e.target.value)} />
+
+      <ul>
+        {userCollection.map((user, index) => (
+          <li key={index}></li>
+        ))}
+      </ul>
+    </div>
+  )
 
 }
 
-//Hooks clase 3.5 min 3
+//Empezar clase 3.8 
