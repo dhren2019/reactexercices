@@ -1,16 +1,25 @@
 import React from "react";
-import { useDebounce } from 'use-debounce';
+
+
+const useUserCollection = () => {
+  const [userCollection, setUserCollection] = React.useState([]);
+  const [filter, setFilter] = React.useState("");
+
+  React.useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users?username_like=${filter}`)
+        .then(response => response.json())
+        .then(json => setUserCollection(json));
+  }, [filter]);
+
+
+  return { filter, setFilter, userCollection}
+}
 
 export const MyComponent = () => {
-  const [filter, setFilter] = React.useState("");
-  const [debounceFilter] = useDebounce(filter, 500);
-  const [userCollection, setUserCollection] = React.useState([]);
+  
+ 
 
-    React.useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users?username_like=${filter}`)
-            .then(response => response.json())
-            .then(json => setUserCollection(json));
-      }, [debounceFilter]);
+    const { filter, setFilter, userCollection} = useUserCollection();
 
   return (
     <div>
