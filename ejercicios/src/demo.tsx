@@ -1,38 +1,51 @@
 import React from "react";
 
-
-const useUserCollection = () => {
-  const [userCollection, setUserCollection] = React.useState([]);
-  const [filter, setFilter] = React.useState("");
-
-  React.useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users?username_like=${filter}`)
-        .then(response => response.json())
-        .then(json => setUserCollection(json));
-  }, [filter]);
-
-
-  return { filter, setFilter, userCollection}
+interface Props {
+  name: string;
+  onChange: (value: string) => void;
 }
 
-export const MyComponent = () => {
-  
- 
-
-    const { filter, setFilter, userCollection} = useUserCollection();
+const EditUsername: React.FC<Props> = React.memo((props) => {
+  console.log(
+    "Hey I'm only rerendered when name gets updated, check React.memo"
+  );
 
   return (
-    <div>
-      <input value={filter} onChange={(e) => setFilter(e.target.value)} />
+    <input
+      value={props.name}
+      onChange={(e) => props.onChange(e.target.value)}
+    />
+  );
+});
 
-      <ul>
-        {userCollection.map((user, index) => (
-          <li key={index}></li>
-        ))}
-      </ul>
-    </div>
-  )
+export const MyComponent = () => {
+  const [userInfo, setInfo] = React.useState({ name: "John", lastname: "Doe" });
 
-}
+  return (
+    <>
+      <h3>
+        {userInfo.name} {userInfo.lastname}
+      </h3>
+      <EditUsername
+        name={userInfo.name}
+        onChange={(name) =>
+          setInfo({
+            ...userInfo,
+            name,
+          })
+        }
+      />
+      <input
+        value={userInfo.lastname}
+        onChange={(e) =>
+          setInfo({
+            ...userInfo,
+            lastname: e.target.value,
+          })
+        }
+      />
+    </>
+  );
+};
 
-//Empezar clase 3.8 
+//clase 3.11
