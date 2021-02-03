@@ -1,51 +1,28 @@
-import React from "react";
-
-interface Props {
-  name: string;
-  onChange: (value: string) => void;
-}
-
-const EditUsername: React.FC<Props> = React.memo((props) => {
-  console.log(
-    "Hey I'm only rerendered when name gets updated, check React.memo"
-  );
-
-  return (
-    <input
-      value={props.name}
-      onChange={(e) => props.onChange(e.target.value)}
-    />
-  );
-});
+import React from 'react'
 
 export const MyComponent = () => {
-  const [userInfo, setInfo] = React.useState({ name: "John", lastname: "Doe" });
+  const [message, setMessage] = React.useState("inirial message");
+  const [seconds, setSeconds] = React.useState(0);
+
+
+  const sendRef = React.useRef(seconds)
+  React.useEffect(() => {
+    setTimeout(() => {
+      console.log(seconds);
+      setSeconds(1)
+      sendRef.current = 1;
+    }, 1000);
+
+    setTimeout(() => {
+      setMessage(`Total seconds: ${sendRef.current}`);
+    }, 2000);
+  }, []);
+
 
   return (
-    <>
-      <h3>
-        {userInfo.name} {userInfo.lastname}
-      </h3>
-      <EditUsername
-        name={userInfo.name}
-        onChange={(name) =>
-          setInfo({
-            ...userInfo,
-            name,
-          })
-        }
-      />
-      <input
-        value={userInfo.lastname}
-        onChange={(e) =>
-          setInfo({
-            ...userInfo,
-            lastname: e.target.value,
-          })
-        }
-      />
+    <> 
+    <h3>{message}</h3>
+    <h4>{seconds}</h4>
     </>
-  );
-};
-
-//clase 3.11
+  )  
+}
