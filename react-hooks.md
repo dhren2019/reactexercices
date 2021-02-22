@@ -12,7 +12,7 @@ un **h4**, y por otro permita editarlo utilizando un **input**.
 - Vamos a crear un fichero que llamaremos _demo.tsx_, vayamos paso a paso
   primero nos importamos **React** ¿Por qué si de primeras no uso nada que
   ponga _React._ porque en el momento que empezamos a poner tsx/jsx
-  (es decir esos _h1_, _input_ o _div_ que después se traducen a
+  (es decir es∏Zos _h1_, _input_ o _div_ que después se traducen a
   _React.createElement_ es necesario importarlo).
 
 _demo.tsx_

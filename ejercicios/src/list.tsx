@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react'
+import { Link } from "react-router-dom"
 
-export const ListPage: React.FC = () => {
+export const ListPage = () => {
     return (
-        <>
-        <h2>Hello from LIST page</h2>
-        </>
+        <div>
+            <h2>List page</h2>
+            <Link to="/detail">Navigate to detail page</Link>
+        </div>
     )
 }
+
