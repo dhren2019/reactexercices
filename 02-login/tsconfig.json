@@ -12,13 +12,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "baseUrl": "./src/",
-    "paths": {
-      "core":["core"],
-      "scenes":["scenes"],
-      "pods": ["pods"]
-    }
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  }
 }

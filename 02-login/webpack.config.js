@@ -6,20 +6,17 @@ module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
-    alias: {
-      pods: helpers.resolveFromRootPath('src/pods')
-    }
   },
+  devtool: "eval-source-map",
   entry: {
     app: ["./index.tsx"],
   },
-  devtool: "eval-source-map",
   stats: "errors-only",
   output: {
     filename: "[name].[chunkhash].js",
     publicPath: "/",
   },
-  devServer:{
+  devServer: {
     historyApiFallback: true,
   },
   module: {
