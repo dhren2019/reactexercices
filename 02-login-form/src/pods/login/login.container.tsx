@@ -13,7 +13,7 @@ export const LoginContainer: React.FunctionComponent = () => {
     if (isValid) {
       history.push(routes.submoduleList)
     }else {
-      // alert('Invalid login')
+     alert('Invalid login')
      
         
       
