@@ -1,0 +1,38 @@
+{
+  "name": "gatsby-by-sample",
+  "version": "1.0.0",
+  "description": "Project with examples using Gatsby step by step",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemoncode/gatsby-by-sample.git"
+  },
+  "keywords": [
+    "gatsby",
+    "lemoncode",
+    "step",
+    "by",
+    "step"
+  ],
+  "author": "Lemoncode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lemoncode/gatsby-by-sample/issues"
+  },
+  "homepage": "https://github.com/Lemoncode/gatsby-by-sample#readme",
+  "dependencies": {
+    "@emotion/css": "^11.0.0",
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/icons": "^4.9.1",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "dotenv": "^8.2.0",
+    "typescript": "^4.1.2"
+  }
+}
