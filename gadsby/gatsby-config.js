@@ -1,6 +1,11 @@
 const path = require('path');
 
 module.exports = {
+  siteMetadata: {
+       title: 'Gatsby blog',
+       description: 'Project to learn Gatsby',
+       author: 'Dhren',
+     },
   plugins: [
     'gatsby-plugin-typescript',
     {
@@ -26,8 +31,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby by sample',
-        short_name: 'Lemoncode-Gatsby',
+        name: 'Gatsby Blog',
+        short_name: 'Blog Dhren',
         start_url: '/',
         background_color: '#f5f7fb',
         theme_color: '#d9d900',
@@ -35,5 +40,6 @@ module.exports = {
         icon: 'src/core/images/favicon.png',
       },
     },
+    'gatsby-plugin-react-helmet',
   ],
 };
