@@ -7,7 +7,7 @@ gatsby new my-site
 ```
 # Gatsby blog
 
-![version](https://img.shields.io/badge/version-1-blue)
+
 
 
 ```diff
@@ -26,6 +26,9 @@ gatsby new my-site
 `$ npm start `
 
 ------------
+
+
+
 
 
 

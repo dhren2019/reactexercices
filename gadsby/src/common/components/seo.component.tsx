@@ -22,7 +22,7 @@ const query = graphql`
   }
 `;
 
-export const SEO: React.StatelessComponent<Props> = (props) => {
+export const SEO: React.FunctionComponent<Props> = (props) => {
   const { description, lang, meta, keywords, title } = props;
 
   return (
