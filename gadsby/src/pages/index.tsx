@@ -27,3 +27,5 @@ const IndexPage: React.FunctionComponent<PageRendererProps> = props => {
      </AppLayout>
     );
   };
+
+  export default IndexPage;
