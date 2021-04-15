@@ -1,5 +1,5 @@
 import React from 'react';
-import {SEO} from 'common/components'
+import { SEO } from 'common/components';
 
 const BlogPage = () => {
   return (
