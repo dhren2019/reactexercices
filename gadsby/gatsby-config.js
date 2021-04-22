@@ -50,5 +50,13 @@ module.exports = {
        path: path.resolve(__dirname, 'src/core/images'),
      },
    },
+   'gatsby-transformer-remark',
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: 'posts',
+          path: path.resolve(__dirname, 'src/common-app/mock-posts'),
+        },
+      },
   ],
 };
