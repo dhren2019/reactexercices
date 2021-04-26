@@ -18,5 +18,5 @@
       "pods": ["pods"],
     }
   },
-  "include": ["./src/**/*", "./global.types.d.ts", "gatsby-config.js"]
+  "include": ["./src/**/*", "./global.types.d.ts", "gatsby-config.js", "gatsby-node.js"]
 }
