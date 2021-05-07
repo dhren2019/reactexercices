@@ -6,12 +6,15 @@ import { Post } from './post.component';
 
 export const query = graphql`
   query($slug: String) {
-    post: markdownRemark(frontmatter: { path: { eq: $slug } }) {
-      frontmatter {
+    post: contentfulPost(path: { eq: $slug }) {
+      
         title
         date
-      }
+        body {
+         childMarkdownRemark {
       html
+    }
+      }
     }
   }
 `;
@@ -28,8 +31,11 @@ const PostTemplate: React.FunctionComponent<Props> = props => {
     pageContext: { slug },
     data: {
       post: {
-        frontmatter: { title, date },
-        html,
+        title,
+      date,
+      body: {
+               childMarkdownRemark: { html },
+             },
       },
     },
   } = props;

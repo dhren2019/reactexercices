@@ -5,14 +5,14 @@ import * as classes from './blog.styles';
 
  const query = graphql`
    query {
-     postListQuery: allMarkdownRemark(
-       sort: { fields: frontmatter___date, order: ASC }
+    postListQuery: allContentfulPost(
+      sort: { fields: date, order: ASC }
      ) {
        nodes {
-         frontmatter {
+         
            title
            path
-         }
+         
        }
      }
    }
@@ -27,10 +27,10 @@ export const Blog: React.FunctionComponent = () => {
       {postListQuery.nodes.map(node => (
          <Link
          className={classes.postTitle}
-           to={node.frontmatter.path}
-           key={node.frontmatter.title}
+         to={`/${node.path}`}
+         key={node.title}
          >
-           <Typography variant="body1">{node.frontmatter.title}</Typography>
+           <Typography variant="body1">{node.title}</Typography>
          </Link>
        ))}
       </div>
