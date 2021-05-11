@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { postListQuery } = data;
 
   postListQuery.nodes.forEach(node => {
-    const { path } = node.frontmatter;
+    const { path } = node; // Añadimos esta nueva
     if(path) {const { resolve } = require('path');
 
 const query = `
